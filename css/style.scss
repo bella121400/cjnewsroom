@@ -1,0 +1,1100 @@
+@charset "UTF-8";
+
+//컬러시스템
+$pri-color-1: #cf2828;
+$pri-color-2: #f8d75efd;
+$pri-color-3: #3ca83a;
+$pri-color-4: #5296d9;
+
+$sec-color-1: #ffffff;
+$sec-color-2: #eeeeee;
+$sec-color-3: #333333;
+
+
+
+//변수선언
+$slogan: 60px;
+$mainTitle: 50px;
+$subTitle: 32px;
+$heading: 28px;
+$heavyTitle: 24px;
+$contTitle: 18px;
+$txtMedium: 16px;
+$txtNormal: 14px;
+$txtSmall: 13px;
+
+//문자열변수
+$mobile: 'screen and (max-width:640px)';
+
+//믹신변수 - 반복된는 코드에 유용
+@mixin imgBasic {
+	display: block;
+	width: 100%;
+}
+
+//믹신함수
+
+//문자 폰트
+
+#wrap {
+	position: relative;
+	min-width: 1200px; //pc대응
+
+	@media #{$mobile} {
+		min-width: 100%;
+	}
+
+	> h1 {
+		text-indent: -9999px;
+	}
+} //end of #wrap
+
+
+header {
+	width: 100%;
+	min-width: 1200px;
+	background-color: $sec-color-1;
+	border-bottom: 1px solid darken($sec-color-2, 10%);
+	@media #{$mobile} {
+		min-width: 100%;
+	
+
+	
+	}
+
+	&.on {
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: 1000;
+	}
+
+	> .container {
+		position: relative;
+		height: 66px;
+
+		> h2 {
+			position: absolute;
+			left: 5%;
+			top: 50%;
+			margin-top: -20px;
+			text-indent: 40px;
+
+			background-image: url(./../images/logo.jpg);
+			background-size: contain;
+			background-repeat: no-repeat;
+
+			@media #{$mobile} {
+				position: absolute;
+				left: 50%;
+				margin-left: -100px;
+			}
+
+			> a {
+				display: block;
+				height: 32px;
+				font-size: $heavyTitle;
+				line-height: 32px;
+			}
+		} //end of h2
+		
+
+		//반응형 햄버거 버튼
+		> .btn-gnb {
+			display: none;
+
+			@media #{$mobile} {
+				background: none;
+				border: none;
+				outline: none;
+
+				display: block;
+				position: absolute;
+				right: 5%;
+				top: 50%;
+				width: 24px;
+				height: 18px;
+			
+				margin-top: -9px;
+				text-indent: -9999px;
+				background-image: url(./../images/mnu_btn.png);
+				background-position: center center;
+				background-repeat: no-repeat;
+
+				&.clse {
+					background-image: url(./../images/clse_btn.png);
+
+					@keyframes rotateBtn {
+						0% {
+							transform: rotate(0);
+						}
+						100% {
+							transform: rotate(360deg);
+						}
+					}
+
+					&:hover {
+						animation: rotateBtn 0.5s;
+					}
+				}
+			}
+		} //end of .btn-gnb
+
+
+		> nav {
+			position: absolute;
+			left: 50%;
+			top: 20px;
+			margin-left: -300px;
+			z-index: 1000;
+	
+
+		
+		
+		
+			> .gnb {
+				display: flex;
+				justify-content: center;
+				@media #{$mobile} {
+					
+					display: none;
+					position: absolute;
+					left: 50%;
+					bottom: -263px;
+					width:640px;
+					margin-left:-10px;
+					padding: 20px;
+
+					
+					background-color:$sec-color-3;
+			
+			
+	
+			}
+			
+				> li {
+				
+					> a {
+						display: block;
+						padding: 0 50px;
+
+						font-size: $contTitle;
+
+						
+						@media #{$mobile} {
+							display: block;
+							height: 60px;
+							color:$sec-color-1;
+							font-size: $heavyTitle;
+							line-height: 60px;
+							
+						}
+					} //end of a
+
+					&:hover > a,
+					&.on > a {
+						color: $pri-color-2;
+
+					}
+				} //end of li
+			} //end of .gnb
+
+			> p {
+				display: flex;
+				position: absolute;
+				left: 50%;
+				top: 0;
+				margin-left: 600px;
+
+				@media #{$mobile} {
+					position: absolute;
+					left: 50%;
+					margin-left: 410px;
+				}
+
+				> a {
+					display: block;
+					padding: 0 20px;
+					font-size: 2em;
+
+					@media #{$mobile} {
+						padding: 0 5px;
+					}
+
+					&:nth-of-type(2) {
+						border-right: 1px solid darken($sec-color-2, 10%);
+
+						@media #{$mobile} {
+							border-right: none;
+						}
+					}
+				
+
+					> span {
+					} //end of span
+
+					> img {
+						position: absolute;
+						left: 50%;
+						top: -22px;
+						margin-left: 70px;
+
+						@media #{$mobile} {
+							position: absolute;
+							left: 50%;
+							width:90%;
+							
+							margin-left: -480%;
+							
+						}
+					}
+				} //end of a
+			} //end of p
+		} //end of nav
+	} //end of .container
+} //end of header
+
+#news {
+	width: 1200px;
+	margin: 0 auto ;
+	padding-top: 80px;
+	
+
+
+	@media #{$mobile} {
+		width: 100%;
+		
+	}
+	> h2 {
+	} //end of h2
+	> .container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		column-gap: 30px;
+		
+
+		// border: 1px solid #000;
+
+		@media #{$mobile} {
+			display: block;
+			width: 90%;
+			margin: 0 auto;
+			padding: 10px;
+		}
+		> .headline {
+			// background-color: pink;
+			> figure {
+				display: flex;
+				flex-direction: column-reverse;
+				@media #{$mobile} {
+					margin-bottom: 10px;
+					padding-bottom: 20px;
+
+					background-color: $sec-color-2;
+					border-radius: 20px;
+				}
+
+				> figcaption {
+					margin-left: 20px;
+
+					> a {
+						> h3 {
+							display: inline-block;
+							margin-top: 20px;
+							font-weight: 500;
+							border-bottom: 2px solid darken($pri-color-4, 10%);
+						} //end of h3
+						> .tit {
+							font-size: $heavyTitle;
+							font-weight: 500;
+							line-height: 1.2;
+							margin-top: 30px;
+						} //end of .tit
+						> .desc {
+							overflow: hidden;
+							text-overflow: ellipsis;
+							display: -webkit-box;
+							-webkit-box-orient: vertical;
+							-webkit-line-clamp: 2;
+
+							margin-top: 20px;
+							margin-bottom: 10px;
+							font-size: $txtMedium;
+							line-height: 1.4;
+
+							@media #{$mobile} {
+								width: 95%;
+							}
+						} //end of .desc
+					} //end of a
+					> time {
+						color: darken($sec-color-2, 40%);
+					} //end of time
+				} //end of figcaption
+				> .frame {
+					overflow: hidden;
+					width: 550px;
+					// border: 1px solid #000;
+					border-radius: 20px;
+
+					@media #{$mobile} {
+						width: 100%;
+						height: 300px;
+					}
+
+					> a {
+						display: block;
+						height: 400px;
+
+						> img {
+							display: block;
+							width: 100%;
+							transition: all 0.5s;
+
+							&:hover {
+								transform: scale(1.2);
+							}
+						} //end of img
+					} //end of a
+				} //end .frame
+			} //end of figure
+		} //end of .headline
+		> .subline {
+			display: grid;
+			grid-template-rows: repeat(3, 1fr);
+			row-gap: 30px;
+
+			@media #{$mobile} {
+				display: block;
+			}
+			> figure {
+				display: flex;
+				display: grid;
+				grid-template-columns: 1.2fr 1fr;
+
+				@media #{$mobile} {
+					display: flex;
+					flex-direction: column-reverse;
+
+					margin-bottom: 10px;
+					padding-bottom: 20px;
+
+					background-color: $sec-color-2;
+					border-radius: 20px;
+				}
+
+				&:first-of-type  h3 {
+					border-bottom: 2px solid darken($pri-color-4, 10%);
+				}
+				&:nth-of-type(2)  h3 {
+					border-bottom: 2px solid $pri-color-1;
+				}
+				&:last-of-type h3 {
+					border-bottom: 2px solid $pri-color-2;
+				}
+
+				> figcaption {
+					@media #{$mobile} {
+						margin-left: 25px;
+					}
+					> a {
+						> h3 {
+							display: inline-block;
+
+							font-weight: 500;
+						} //end of h3
+
+						> .tit {
+							font-size: $contTitle;
+							font-weight: 500;
+							line-height: 1.2;
+							margin-top: 20px;
+
+							@media #{$mobile} {
+								> br {
+									display: none;
+								}
+							}
+						} //end of .tit
+						> .desc {
+							overflow: hidden;
+							text-overflow: ellipsis;
+							display: -webkit-box;
+							-webkit-box-orient: vertical;
+							-webkit-line-clamp: 2;
+
+							margin-top: 20px;
+							margin-bottom: 10px;
+							font-size: $txtMedium;
+							line-height: 1.4;
+							@media #{$mobile} {
+								width: 95%;
+							}
+						} //end of .desc
+					} //end of a
+					> time {
+						color: darken($sec-color-2, 40%);
+					} //end of time
+				} //end of figcaption
+				> .frame {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					overflow: hidden;
+					width: 250px;
+					height: 200px;
+					margin-left: 10px;
+					
+					border-radius: 20px;
+					@media #{$mobile} {
+						display: block;
+						width: 100%;
+						height: 300px;
+						margin-left: 0;
+						margin-bottom: 20px;
+					
+					}
+
+					> a {
+						display: block;
+
+						> img {
+							display: block;
+							transition: all 0.5s;
+							width: 140%;
+
+							@media #{$mobile} {
+							width: 120%;
+							
+							}
+
+							&:hover {
+								transform: scale(1.2);
+							}
+						} //end of img
+					} //end of a
+				} //end of .frame
+			} //end of figure
+		} //end of .subline
+	} //end of .container
+} //end of #news
+
+#onlyonestory {
+	min-width: 1200px;
+	padding: 80px 0;
+	background-color: lighten($sec-color-2, 4%);
+
+	@media #{$mobile} {
+		min-width: 100%;
+		height: 550px;
+	
+	}
+
+	> h2 {
+		margin-bottom: 50px;
+		text-align: center;
+		> span {
+			display: inline-block;
+
+			font-size: $mainTitle;
+			line-height: $mainTitle;
+
+			color: transparent; //텍스트 색상을 투명하게 처리
+			background: linear-gradient(to right, #de8001 12%, #dd210d 50%, #1158a5 100%);
+			-webkit-background-clip: text; //background를 어디에 적용시킬지 결정
+			background-clip: text; //background를 어디에 적용시킬지 결정
+
+			@media #{$mobile} {
+				font-size: $subTitle;
+			}
+		}
+	} //end of h2
+	> .container {
+		width: 1200px;
+		display: grid;
+		grid-template-rows: repeat(4, 1fr);
+		row-gap: 50px;
+		margin: 0 auto;
+		// border: 1px solid #000;
+
+		@media #{$mobile} {
+			display: initial;
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			width: 100%;
+		}
+
+		> figure {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			column-gap: 50px;
+
+			@media #{$mobile} {
+				display: initial;
+				display: flex;
+				flex-direction: column-reverse;
+			}
+
+			&:first-of-type {
+				@media #{$mobile} {
+					display: flex;
+					flex-direction: column-reverse;
+				}
+
+				> figcaption {
+					// border: 1px solid #000;
+					padding: 50px 130px 30px 10px;
+					@media #{$mobile} {
+						padding: 10px;
+					}
+
+					> a {
+						> h3 {
+							color: $pri-color-1;
+						}
+					} //end of a
+				}
+				> .frame {
+					order: -100;
+					margin-left: 50px;
+					background-color: $pri-color-1;
+					@media #{$mobile} {
+						order: 0;
+						margin-left: 10px;
+					}
+				}
+			}
+
+			&:nth-of-type(2) {
+				> figcaption {
+					text-align: right;
+					padding: 50px 10px 30px 130px;
+
+					@media #{$mobile} {
+						padding: 10px;
+						text-align: center;
+
+						br {
+							display: none;
+						}
+					}
+
+					// border: 1px solid #000;
+					> a {
+						> h3 {
+							color: $pri-color-4;
+						}
+					}
+				}
+				> .frame {
+					margin-left: 20px;
+					background-color: $pri-color-4;
+				}
+			}
+			&:nth-of-type(3) {
+				> figcaption {
+					padding: 50px 130px 30px 10px;
+
+					@media #{$mobile} {
+						padding: 10px;
+					}
+
+					> a {
+						> h3 {
+							color: $pri-color-3;
+						}
+					}
+				}
+				> .frame {
+					order: -100;
+					margin-left: 50px;
+					background-color: $pri-color-3;
+
+					@media #{$mobile} {
+						order: 0;
+						margin-left: 10px;
+					}
+				}
+			}
+			&:last-of-type {
+				@media #{$mobile} {
+					position: relative;
+				}
+				> figcaption {
+					text-align: right;
+					padding: 50px 10px 30px 130px;
+
+					@media #{$mobile} {
+						position: absolute;
+						top: 49%;
+						padding: 10px;
+						text-align: center;
+					}
+					> a {
+						> h3 {
+							color: $pri-color-2;
+						}
+					}
+				}
+				> .frame {
+					margin-left: 20px;
+					background-color: $pri-color-2;
+
+					@media #{$mobile} {
+						position: absolute;
+						top: 0;
+					}
+				}
+			}
+
+			> figcaption {
+				@media #{$mobile} {
+					width: 90%;
+					text-align: center;
+					margin-left: 10px;
+				}
+				> a {
+					> h3 {
+						margin-bottom: 20px;
+						font-size: $contTitle;
+					}
+					> .tit {
+						margin-bottom: 10px;
+						font-size: $heavyTitle;
+						line-height: 1.2;
+						@media #{$mobile} {
+							font-size: $contTitle;
+						}
+					}
+					> .desc {
+						overflow: hidden;
+						text-overflow: ellipsis;
+						display: -webkit-box;
+						-webkit-box-orient: vertical;
+						-webkit-line-clamp: 3;
+
+						font-size: $txtMedium;
+						line-height: 1.4;
+
+						@media #{$mobile} {
+							display: none;
+						}
+					}
+				} //end of a
+			} //end of figcaption
+			> .frame {
+				overflow: hidden;
+				width: 500px;
+				height: 300px;
+
+				border-radius: 10px;
+
+				@media #{$mobile} {
+					width: 90%;
+					height: 100px;
+					display: flex;
+					justify-content: center;
+					text-align: center;
+				}
+
+				> a {
+					display: block;
+					img {
+						display: block;
+						margin-top: 5px;
+						transition: all 0.5s;
+
+						@media #{$mobile} {
+							width: 110%;
+						}
+
+						&:hover {
+							transform: scale(1.2);
+						}
+					}
+				} //end of a
+			} //end of .frame
+		} //end of figure
+	} //end of container
+} //end of onlyonestory
+
+#cjheritage {
+	min-width: 1200px;
+	margin: 0 auto;
+	padding: 50px 0;
+	background-color: $sec-color-2;
+	@media #{$mobile} {
+		min-width: 100%;
+	
+	}
+
+	> h2 {
+		padding-top: 50px;
+		margin-bottom: 50px;
+		text-align: center;
+		> span {
+			display: inline-block; //그레디언트 배경 텍스트 만큼만
+
+			font-size: $mainTitle;
+			line-height: $mainTitle;
+
+			//글자에 그레디언트 효과
+			color: transparent; //텍스트 색상을 투명하게 처리
+			background: linear-gradient(to right, #de8001 12%, #dd210d 50%, #1158a5 100%);
+			-webkit-background-clip: text; //background를 어디에 적용시킬지 결정
+			background-clip: text; //background를 어디에 적용시킬지 결정
+
+			@media #{$mobile} {
+				font-size: $subTitle;
+			}
+		}
+	} //end of h2
+	> article {
+		width: 1200px;
+		position: relative;
+		margin: 0 auto;
+
+		@media #{$mobile} {
+			width: 80%;
+		}
+
+		> h3 {
+			padding-bottom: 50px;
+			font-weight: 400;
+			font-size: $heavyTitle;
+			text-align: center;
+
+			@media #{$mobile} {
+				font-size: $txtMedium;
+				line-height: 1.2;
+			}
+		}
+
+		> .swiper {
+			// overflow:visible;
+			> .swiper-wrapper {
+				> .swiper-slide {
+					padding: 20px;
+					background-color: $sec-color-1;
+					border-radius: 30px;
+					box-sizing: border-box;
+
+					> img {
+						display: block;
+
+						width: 100%;
+						border-radius: 20px;
+					}
+					> p {
+						margin-top: 20px;
+						margin-bottom: 10px;
+						font-size: $contTitle;
+						line-height: 1.5;
+
+						//한줄로 말줄임...
+						overflow: hidden;
+						white-space: nowrap;
+						text-overflow: ellipsis;
+
+						> span,
+						> time {
+							font-size: $txtNormal;
+						}
+						> span {
+							color: $pri-color-1;
+							margin-right: 20px;
+						}
+						> time {
+							color: darken($sec-color-2, 40%);
+						}
+					}
+				} //end of .swiper-slide
+			} //end of .swiper-wrapper
+		} //end of .swiper
+
+		> .swiper-pagination {
+			bottom: -30px;
+		} //end of .swiper-pagination
+		> .swiper-button-prev {
+			position: absolute;
+			top: 60%;
+			left: -50px;
+			color: #222;
+		}
+		> .swiper-button-next {
+			position: absolute;
+			top: 60%;
+			right: -50px;
+			color: #222;
+		}
+	} //end of article
+	> .library {
+		width: 1200px;
+		margin: 50px auto;
+		@media #{$mobile} {
+			width: 100%;
+		}
+
+		> h3 {
+			padding-top: 50px;
+			margin-bottom: 50px;
+			text-align: center;
+			> span {
+				display: inline-block; //그레디언트 배경 텍스트 만큼만
+
+				font-size: $mainTitle;
+				line-height: $mainTitle;
+
+				//글자에 그레디언트 효과
+				color: transparent; //텍스트 색상을 투명하게 처리
+				background: linear-gradient(to right, #de8001 12%, #dd210d 50%, #1158a5 100%);
+				-webkit-background-clip: text; //background를 어디에 적용시킬지 결정
+				background-clip: text; //background를 어디에 적용시킬지 결정
+
+				@media #{$mobile} {
+					font-size: $subTitle;
+				}
+			}
+		} //end of h3
+		> .thmbs {
+			display: flex;
+			justify-content: space-between;
+
+			@media #{$mobile} {
+				display: block;
+				width: 90%;
+				margin: 0 auto;
+			}
+
+			> li {
+				position: relative;
+
+				@media #{$mobile} {
+					margin-bottom: 20px;
+				}
+
+				&:last-child p {
+					color: #222;
+				}
+
+				> a {
+					display: block;
+
+					height: 160px;
+					@media #{$mobile} {
+						height: 300px;
+					}
+
+					> img {
+						display: block;
+						width: 250px;
+						height: 160px;
+						z-index: -1;
+						border-radius: 10px;
+
+						@media #{$mobile} {
+							width: 100%;
+							height: 300px;
+						}
+					}
+					> p {
+						display: block;
+						position: absolute;
+						top: 60%;
+						width: 250px;
+						padding: 10px;
+						color: $sec-color-1;
+						font-weight: 300;
+						font-size: $heavyTitle;
+						line-height: $heavyTitle;
+
+						@media #{$mobile} {
+							position: absolute;
+							top: 80%;
+							width: 90%;
+							text-align: center;
+						}
+					}
+				} //end of a
+			} //end of li
+		} //end of .thmbs
+	} //end of .library
+} //end of cjherltage
+
+footer {
+	background-color: $sec-color-3;
+	height: 200px;
+
+	@media #{$mobile} {
+		width: 100%;
+		height: 150px;
+	
+	}
+
+	> .container {
+		position: relative;
+		width: 1200px;
+		height: 200px;
+		margin: 0 auto;
+		padding: 30px;
+		box-sizing: border-box;
+
+		@media #{$mobile} {
+			width: 100%;
+			height: 150px;
+		}
+
+		> .ntw {
+			display: flex;
+			position: absolute;
+			left: 50%;
+			margin-left: 200px;
+			@media #{$mobile} {
+				margin-left:-5%;
+			}
+
+			> P {
+				display: block;
+				position: absolute;
+				left: 50%;
+				top: -10px;
+				width: 80px;
+				height: 67px;
+				margin-left: -930px;
+
+				background-image: url(./../images/ci-white.png);
+				background-size: cover;
+				background-repeat: no-repeat;
+				@media #{$mobile} {
+					margin-left: -130%;
+					width: 60px;
+					height: 50px;
+				}
+			}
+			> span {
+				display: block;
+				width: 40px;
+				height: 40px;
+				margin-left: 20px;
+
+				background-color: #222;
+				border-radius: 50px;
+
+
+				@media #{$mobile} {
+					width: 30px;
+					height: 30px;
+					margin-left: 10px;
+				}
+
+				&:hover {
+					background-color: $pri-color-4;
+					border-color: transparent;
+				}
+				> i {
+					display: block;
+					color: $sec-color-2;
+					font-size: $contTitle;
+					height: 40px;
+					line-height: 40px;
+					text-align: center;
+					@media #{$mobile} {
+						height: 30px;
+						font-size: $txtNormal;
+						line-height: 30px;
+					}
+				} //end of i
+			} //end of span
+		} //end of .ntw
+		> .info {
+			position: absolute;
+			left: 50%;
+			top: 100px;
+			width: 1200px;
+			margin-left: -600px;
+			border-top: 1px solid $sec-color-2;
+
+			@media #{$mobile} {
+				position: absolute;
+				top: 80px;
+				width: 90%;
+				margin-left: -45%;
+			}
+			> a {
+				display: inline-block;
+				color: $sec-color-1;
+				font-weight: 600;
+				font-size: $contTitle;
+				margin-left: 3%;
+
+				@media #{$mobile} {
+					font-weight: 300;
+					font-size: $txtNormal;
+					margin-left: 30px;
+				}
+
+				&:nth-of-type(1) {
+					padding-top: 10px;
+				}
+				&:nth-of-type(2) {
+					margin-left: 20px;
+					padding-left: 20px;
+					border-left: 1px solid $sec-color-2;
+				}
+				&:nth-of-type(3) {
+					position: absolute;
+					left: 50%;
+					bottom: -60px;
+					width: 100px;
+					height: 70px;
+					margin-left: 480px;
+					text-indent: -9999px;
+					background-image: url(./../images/wa-cert.png);
+					background-size: cover;
+					background-repeat: no-repeat;
+
+					@media #{$mobile} {
+						display: none;
+					}
+				}
+			} //end of a
+
+			> address {
+				position: absolute;
+				left: 50%;
+				bottom: -50px;
+				margin-left: -47%;
+
+				color: $sec-color-2;
+				font-weight: 300;
+				font-size: $txtMedium;
+				@media #{$mobile} {
+					position: absolute;
+					bottom: -30px;
+					margin-left: -43%;
+					font-weight: 200;
+
+				}
+			} //end of address
+		} //end of .info
+	} //end of .container
+} //end of footer
+aside {
+	position: fixed;
+	right: 1em;
+	bottom: 1em;
+	z-index: 1000;
+	
+	> .top {
+		display: block;
+		width: 28px;
+		height: 36px;
+		line-height: 36px;
+		text-align: center;
+		background-color: $sec-color-3;
+
+		> i {
+			color: $sec-color-1;
+		}
+	}
+} //end of aside
